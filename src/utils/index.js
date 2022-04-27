@@ -1,6 +1,8 @@
 exports.addMovie = async (collection, movieObj) => {
-    console.log(movieObj);
     try {
+        if (movieObj.title == null || movieObj.actor == null) {
+            throw('Movie must have a title and actor');
+        }
         const addEntry = await collection.insertOne(movieObj);
         console.log(addEntry);
     } catch (error) {
@@ -17,9 +19,20 @@ exports.listMovies = async (collection) => {
     }
 }
 
+exports.listMoviesFilter = async (collection, filter) => {
+    try {
+        const movieList = await collection.find(removeUndefinedFromObject(filter)).toArray();
+        console.log(movieList);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 exports.updateMovies = async (collection, title, newData) => {
     try {
-        const updatedMovie = await collection.updateMany(title, newData);
+        const update = { $set: removeUndefinedFromObject(newData) }
+        console.log(update);
+        const updatedMovie = await collection.updateOne(title, update);
         console.log(updatedMovie);
     } catch (error) {
         console.log(error);
