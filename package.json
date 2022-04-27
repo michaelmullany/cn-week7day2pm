@@ -1,0 +1,25 @@
+{
+  "name": "week7day2pm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelmullany/cn-week7day2pm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelmullany/cn-week7day2pm/issues"
+  },
+  "homepage": "https://github.com/michaelmullany/cn-week7day2pm#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mongodb": "^4.5.0",
+    "yargs": "^17.4.1"
+  }
+}
